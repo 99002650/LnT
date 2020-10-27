@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">L&amp;T</string>
+    <string name="enter_username">नाम दर्ज</string>
+    <string name="enter_pwd">पास वर्ड दर्ज करें</string>
+</resources>
