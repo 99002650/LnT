@@ -1,6 +1,8 @@
 package com.example.lt;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
@@ -18,6 +20,9 @@ public class RecyclerActivity extends AppCompatActivity {
 
         createData();
         NotesAdapter adapter = new NotesAdapter(this,noteArrayList);
+        RecyclerView notesRecyclerView = findViewById(R.id.notes_recyclerview);
+        notesRecyclerView.setAdapter(adapter);
+        notesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
     private void createData() {

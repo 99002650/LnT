@@ -17,6 +17,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
 
     public NotesAdapter(Context context, ArrayList<Note> notes) {
         noteArrayList = notes;
+        mLayoutInflater = LayoutInflater.from(context);
     }
 
     @NonNull
@@ -31,6 +32,9 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
        Note note = noteArrayList.get(position);
        String title = note.getTitle();
        String subTitle = note.getSubTitle();
+
+       plankGivenSachin.titleTextview.setText(title);
+       plankGivenSachin.subTitleTextview.setText(subTitle);
     }
 
     @Override// sohel -- keep count of the data items
@@ -40,9 +44,11 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
 
     //box holding the planks[new/recycled] bought by sachin
     public class NotesViewHolder extends RecyclerView.ViewHolder {
-        TextView titleTextview, subTitleTextview;
+      public   TextView titleTextview, subTitleTextview;//declaration
         public NotesViewHolder(@NonNull View itemView) {
             super(itemView);
+            titleTextview = itemView.findViewById(R.id.textViewTitle);
+            subTitleTextview = itemView.findViewById(R.id.textViewSubtitle);
         }
     }
 }
