@@ -17,6 +17,7 @@ public class RecyclerActivity extends AppCompatActivity {
         noteArrayList = new ArrayList<>(); //initialization
 
         createData();
+        NotesAdapter adapter = new NotesAdapter(this,noteArrayList);
     }
 
     private void createData() {
