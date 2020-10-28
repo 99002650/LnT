@@ -10,6 +10,10 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
+/**
+ * This is my first activity to be launced
+ */
 public class MainActivity extends AppCompatActivity {
     EditText nameEditText;    //declaration
     public static String TAG = MainActivity.class.getSimpleName();
@@ -64,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         switch (view.getId()){
             case R.id.buttonlogin:
                 Log.w(TAG,"logging in");
-
+                addTwoNums(10,20);
                 String name = nameEditText.getText().toString(); //using
                // Toast.makeText(this, "welcome to android "+name, Toast.LENGTH_SHORT).show();
                 Intent homeIntent = new Intent(MainActivity.this,HomeActivity.class);
@@ -80,6 +84,12 @@ public class MainActivity extends AppCompatActivity {
         }
        }
 
+    /**
+     * This method add the two nos
+     * @param firstno
+     * @param secondNo
+     * @return
+     */
        private  int addTwoNums(int firstno, int secondNo){
         return firstno+secondNo;
        }
