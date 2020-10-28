@@ -45,10 +45,10 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
     //box holding the planks[new/recycled] bought by sachin
     public class NotesViewHolder extends RecyclerView.ViewHolder {
       public   TextView titleTextview, subTitleTextview;//declaration
-        public NotesViewHolder(@NonNull View itemView) {
-            super(itemView);
-            titleTextview = itemView.findViewById(R.id.textViewTitle);
-            subTitleTextview = itemView.findViewById(R.id.textViewSubtitle);
+        public NotesViewHolder(@NonNull View woodenPlank) {
+            super(woodenPlank);
+            titleTextview = woodenPlank.findViewById(R.id.textViewTitle);
+            subTitleTextview = woodenPlank.findViewById(R.id.textViewSubtitle);
         }
     }
 }
