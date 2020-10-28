@@ -7,9 +7,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -29,6 +32,10 @@ public class RecyclerActivity extends AppCompatActivity {
         RecyclerView notesRecyclerView = findViewById(R.id.notes_recyclerview);
         notesRecyclerView.setAdapter(adapter);
         notesRecyclerView.setLayoutManager(new GridLayoutManager(this,2));
+
+        Button contextButton = findViewById(R.id.buttoncontext);
+        registerForContextMenu(contextButton);
+
     }
 
     private void createData() {
@@ -61,6 +68,24 @@ public class RecyclerActivity extends AppCompatActivity {
              case R.id.paste:
                  Toast.makeText(this, "pasting all", Toast.LENGTH_SHORT).show();
 
+                 break;
+         }
+        return true;
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.list_item_menu,menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+         super.onContextItemSelected(item);
+         switch (item.getItemId()){
+             case R.id.delete:
+                 Toast.makeText(this, "deleting", Toast.LENGTH_SHORT).show();
                  break;
          }
         return true;
