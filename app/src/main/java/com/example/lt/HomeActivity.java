@@ -13,8 +13,14 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Log.d(TAG,"created");
+        int c = subTwoNos(30,20);
+
         String data = getIntent().getExtras().getString("mykey");
         TextView greetingTextView =  findViewById(R.id.textView_greeting);
         greetingTextView.setText(data);
+    }
+
+    private int subTwoNos(int i, int i1) {
+        return i1-i;
     }
 }

@@ -21,6 +21,42 @@ public class MainActivity extends AppCompatActivity {
         nameEditText = findViewById(R.id.editTextTextPersonName);  //init
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i(TAG,"activity started");
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i(TAG,"activity paused");
+
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i(TAG,"activity resumed");
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i(TAG,"activity stopped");
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i(TAG,"activity destroyed");
+
+    }
+
     public void clickHandler(View view) {
         Log.v(TAG,"button clicked");
 
