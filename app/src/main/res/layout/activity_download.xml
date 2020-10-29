@@ -7,6 +7,8 @@
     tools:context=".DownloadActivity">
 
     <ProgressBar
+
+        android:visibility="invisible"
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="0dp"
