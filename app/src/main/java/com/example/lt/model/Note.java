@@ -1,4 +1,4 @@
-package com.example.lt;
+package com.example.lt.model;
 
 
 //model class or a pojo
