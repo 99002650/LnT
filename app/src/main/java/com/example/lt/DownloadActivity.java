@@ -7,11 +7,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 public class DownloadActivity extends AppCompatActivity {
     public static String TAG = MainActivity.class.getSimpleName();
     ProgressBar mProgressBar;
     EditText mBookInput;
+    TextView mTitleText,mAuthorText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +21,8 @@ public class DownloadActivity extends AppCompatActivity {
         Log.i(TAG,"activity created");
          mBookInput = findViewById(R.id.bookInput);
         mProgressBar = findViewById(R.id.progressBar);
+        mTitleText = findViewById(R.id.titleText);
+        mAuthorText = findViewById(R.id.authorText);
     }
 
     public void downloadHandler(View view) {
@@ -32,7 +36,7 @@ public class DownloadActivity extends AppCompatActivity {
 
 
     private void searchBooks() {
-        String queryString = mBookInput.getText().toString();
-
+        String mQueryString = mBookInput.getText().toString();
+        new FetchBook(mTitleText, mAuthorText).execute(mQueryString);
     }
 }
