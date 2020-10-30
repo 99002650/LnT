@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class DatastorageActivity extends AppCompatActivity {
     public static final String MYFILENAME = "myfilename";
@@ -57,5 +59,20 @@ public class DatastorageActivity extends AppCompatActivity {
         //restore the data
         titleEditText.setText(title);
         subtitleEditText.setText(subtitle);
+    }
+
+    public void dbHandler(View view) {
+        switch (view.getId()){
+            case R.id.buttonput:
+                String title = titleEditText.getText().toString();
+                String subtitle = subtitleEditText.getText().toString();
+                //put the above data to db
+                break;
+            case R.id.buttonget:
+                //get the data from db and
+                // put into textview
+                TextView dbTextView = findViewById(R.id.textViewdb);
+                break;
+        }
     }
 }

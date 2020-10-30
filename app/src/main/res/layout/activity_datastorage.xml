@@ -7,7 +7,6 @@
     tools:context=".DatastorageActivity">
 
     <EditText
-        android:hint="title"
         android:id="@+id/editTextTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,12 +14,12 @@
         android:layout_marginLeft="29dp"
         android:layout_marginTop="62dp"
         android:ems="10"
+        android:hint="title"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:hint="subtitle"
         android:id="@+id/editTextTextsubtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,7 +27,43 @@
         android:layout_marginLeft="32dp"
         android:layout_marginTop="25dp"
         android:ems="10"
+        android:hint="subtitle"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTitle" />
+
+    <Button
+        android:id="@+id/buttonput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="36dp"
+        android:onClick="dbHandler"
+        android:text="put"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextsubtitle" />
+
+    <Button
+        android:id="@+id/buttonget"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:onClick="dbHandler"
+        android:text="get"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonput"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextsubtitle" />
+
+    <TextView
+        android:id="@+id/textViewdb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="21dp"
+        android:text="Data from db"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonput" />
 </androidx.constraintlayout.widget.ConstraintLayout>
