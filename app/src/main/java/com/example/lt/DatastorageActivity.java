@@ -78,8 +78,10 @@ public class DatastorageActivity extends AppCompatActivity {
                 break;
             case R.id.buttonget:
                 //get the data from db and
+               String result = dao.readLastNote();
                 // put into textview
                 TextView dbTextView = findViewById(R.id.textViewdb);
+                dbTextView.setText(result);
                 break;
         }
     }
