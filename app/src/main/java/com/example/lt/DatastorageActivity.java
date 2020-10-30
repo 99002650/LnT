@@ -1,11 +1,16 @@
 package com.example.lt;
+import com.example.lt.database.FeedReaderContract.FeedEntry;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CursorAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
 import com.example.lt.database.Dao;
@@ -24,6 +29,17 @@ public class DatastorageActivity extends AppCompatActivity {
         subtitleEditText = findViewById(R.id.editTextTextsubtitle);
         dao = new Dao(this);
         dao.openDb();
+        ListView dbListView = findViewById(R.id.dblistview);
+        Cursor datacursor = dao.getNotes();
+        CursorAdapter adapter = new SimpleCursorAdapter(this,//context
+                android.R.layout.simple_list_item_2,//row layout
+                datacursor, //data
+                new String[]{FeedEntry.COLUMN_NAME_TITLE,FeedEntry.COLUMN_NAME_SUBTITLE},  //from
+                new int[] {android.R.id.text1,android.R.id.text2} //to
+                );
+        dbListView.setAdapter(adapter);
+
+
     }
 
     @Override

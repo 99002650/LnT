@@ -31,7 +31,7 @@ FeedReaderDbHelper helper;
     public String readLastNote(){
        Cursor cursor = database.query(FeedEntry.TABLE_NAME,null,null,null
         ,null,null,null);
-       cursor.moveToFirst();
+       cursor.moveToLast();
 
        int titleIndex = cursor.getColumnIndexOrThrow(FeedEntry.COLUMN_NAME_TITLE);
        int subTitleIndex = cursor.getColumnIndexOrThrow(FeedEntry.COLUMN_NAME_SUBTITLE);
@@ -42,4 +42,9 @@ FeedReaderDbHelper helper;
     }
     public void updateNote(){}
     public void deleteNote(){}
+
+    public Cursor getNotes() {
+        Cursor cursor = database.rawQuery("select * from notes_table",null);
+        return cursor;
+    }
 }
