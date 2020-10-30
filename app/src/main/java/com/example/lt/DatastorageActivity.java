@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CursorAdapter;
@@ -30,12 +31,17 @@ public class DatastorageActivity extends AppCompatActivity {
         dao = new Dao(this);
         dao.openDb();
         ListView dbListView = findViewById(R.id.dblistview);
-        Cursor datacursor = dao.getNotes();
+        Uri uriSms = Uri.parse("content://sms/inbox");
+        Cursor cursor = this.getContentResolver().query(uriSms, null,
+                null, null, null);
+       // Cursor datacursor = dao.getNotes();
         CursorAdapter adapter = new SimpleCursorAdapter(this,//context
-                android.R.layout.simple_list_item_2,//row layout
-                datacursor, //data
-                new String[]{FeedEntry.COLUMN_NAME_TITLE,FeedEntry.COLUMN_NAME_SUBTITLE},  //from
-                new int[] {android.R.id.text1,android.R.id.text2} //to
+                android.R.layout.simple_list_item_1,//row layout
+                cursor, //data
+                new String[]{"body"},
+                        //FeedEntry.COLUMN_NAME_TITLE,FeedEntry.COLUMN_NAME_SUBTITLE},  //from
+                new int[] {android.R.id.text1}
+                        //,android.R.id.text2} //to
                 );
         dbListView.setAdapter(adapter);
 
