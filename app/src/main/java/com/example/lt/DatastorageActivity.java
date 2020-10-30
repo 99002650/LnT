@@ -8,17 +8,22 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.lt.database.Dao;
+
 public class DatastorageActivity extends AppCompatActivity {
     public static final String MYFILENAME = "myfilename";
     public static final String KEYTITLE = "keytitle";
     public static final String KEYSUBTITLE = "keysubtitle";
     EditText titleEditText, subtitleEditText;
+    Dao dao;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_datastorage);
         titleEditText = findViewById(R.id.editTextTitle);
         subtitleEditText = findViewById(R.id.editTextTextsubtitle);
+        dao = new Dao(this);
+        dao.openDb();
     }
 
     @Override
@@ -66,6 +71,9 @@ public class DatastorageActivity extends AppCompatActivity {
             case R.id.buttonput:
                 String title = titleEditText.getText().toString();
                 String subtitle = subtitleEditText.getText().toString();
+                dao.createNote(title,subtitle);
+                titleEditText.setText("");
+                subtitleEditText.setText("");
                 //put the above data to db
                 break;
             case R.id.buttonget:
