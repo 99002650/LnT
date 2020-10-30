@@ -2,6 +2,7 @@ package com.example.lt;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,7 +28,20 @@ public class DownloadActivity extends AppCompatActivity {
 
     public void downloadHandler(View view) {
         Log.i(TAG,"button clicked");
-        searchBooks();
+        Intent serviceIntent = new Intent(DownloadActivity.this,MusicService.class);
+
+        switch (view.getId()){
+            case R.id.buttonstart:
+                startService(serviceIntent);
+                break;
+            case R.id.buttonstop:
+                stopService(serviceIntent);
+                break;
+            case R.id.searchButton:
+                searchBooks();
+                break;
+        }
+
 
        /* DownloadTask downloadTask = new DownloadTask(mProgressBar);
         downloadTask.execute("http://lnt.com/imagetobedownloaded");*/

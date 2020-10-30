@@ -60,4 +60,27 @@
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleText" />
+
+    <Button
+        android:onClick="downloadHandler"
+        android:id="@+id/buttonstart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:text="start"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonstop"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:onClick="downloadHandler"
+        android:id="@+id/buttonstop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="65dp"
+        android:layout_marginLeft="65dp"
+        android:layout_marginTop="54dp"
+        android:text="stop"
+        app:layout_constraintStart_toEndOf="@+id/buttonstart"
+        app:layout_constraintTop_toBottomOf="@+id/authorText" />
 </androidx.constraintlayout.widget.ConstraintLayout>
